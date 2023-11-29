@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">CamiloPatino_SevastianSilva_COMP304Lab5Ex1</string>
+    <string name="app_name">Buildings Viewer</string>
+    <string-array name="building_types">
+        <item>Old Building</item>
+        <item>Museums</item>
+        <item>Stadiums</item>
+        <item>Attractions</item>
+    </string-array>
 </resources>
