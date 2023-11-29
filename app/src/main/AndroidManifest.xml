@@ -31,6 +31,11 @@
             android:label="activity_maps"
             android:parentActivityName=".view.MainActivity"/>
         <activity
+            android:name=".view.MapInteracionActivity"
+            android:exported="false"
+            android:label="activity_maps"
+            android:parentActivityName=".view.MainActivity"/>
+        <activity
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>

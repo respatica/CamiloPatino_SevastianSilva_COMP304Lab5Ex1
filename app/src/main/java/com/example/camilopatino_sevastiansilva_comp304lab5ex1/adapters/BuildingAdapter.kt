@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.camilopatino_sevastiansilva_comp304lab5ex1.R
+import com.example.camilopatino_sevastiansilva_comp304lab5ex1.view.MainActivity
 import com.example.camilopatino_sevastiansilva_comp304lab5ex1.view.MapActivity
+import com.example.camilopatino_sevastiansilva_comp304lab5ex1.view.MapInteracionActivity
 
 class BuildingAdapter(private var buildingData: Array<String>): RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder>() {
 
@@ -29,7 +31,7 @@ class BuildingAdapter(private var buildingData: Array<String>): RecyclerView.Ada
     override fun onBindViewHolder(holder: BuildingViewHolder, position: Int) {
         holder.buildingText.text = buildingData[position]
         holder.itemView.setOnClickListener {
-            val intent = Intent(it.context, MapActivity::class.java)
+            val intent = Intent(it.context, MapInteracionActivity::class.java)
             intent.putExtra("building", buildingData[position])
             it.context.startActivity(intent)
         }
