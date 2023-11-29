@@ -19,11 +19,13 @@ class MainActivity : AppCompatActivity() , OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
         val prefs = getSharedPreferences("MAPS_INFO", Context.MODE_PRIVATE)
         val isMapsPermissionGranted = prefs.getBoolean("IS_MAP_PERMISSION_GRANTED", false)
         val isFineLocationPermissionGranted = prefs.getBoolean("IS_FINE_PERMISSION_GRANTED", false)
+
+
 
         if (isMapsPermissionGranted) {
             if(!isFineLocationPermissionGranted) {
