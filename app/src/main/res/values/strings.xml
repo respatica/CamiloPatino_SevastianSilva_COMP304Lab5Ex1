@@ -1,9 +1,40 @@
 <resources>
     <string name="app_name">Buildings Viewer</string>
     <string-array name="building_types">
-        <item>Old Building</item>
+        <item>Old Buildings</item>
         <item>Museums</item>
         <item>Stadiums</item>
         <item>Attractions</item>
+    </string-array>
+    <string-array name="old_buildings">
+        <item>Casa Loma</item>
+        <item>Old City Hall</item>
+        <item>Gooderham Building</item>
+        <item>Osgoode Hall</item>
+        <item>Commerce Court North</item>
+        <item>Queen\'s Park</item>
+        <item>St. James Cathedral</item>
+        <item>Union Station</item>
+    </string-array>
+    <string-array name="museums">
+        <item>Royal Ontario Museum</item>
+        <item>Gardiner Museum</item>
+        <item>Hockey Hall of Fame</item>
+        <item>Textile Museum of Canada</item>
+        <item>Casa Spadina</item>
+        <item>Ontario Science Center</item>
+    </string-array>
+    <string-array name="stadiums">
+        <item>Rogers Center</item>
+        <item>Central Tech Stadium</item>
+        <item>BMO Field</item>
+        <item>Varsity Stadium</item>
+    </string-array>
+    <string-array name="attractions">
+        <item>Canada\'s Wonderland</item>
+        <item>CN Tower</item>
+        <item>Ripley\'s Aquarium of Canada</item>
+        <item>St. Lawrence Market Complex</item>
+        <item>Toronto Zoo</item>
     </string-array>
 </resources>
