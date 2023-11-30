@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_margin="20dp"
-    android:textAlignment="center">
+    android:textAlignment="center"
+    app:cardBackgroundColor="#ACA8A8"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
 
     <TextView
         android:id="@+id/building_type_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ff6750a4"
+        android:backgroundTint="#00A5A2A2"
+        android:backgroundTintMode="add"
         android:padding="10dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+        android:textColorHint="@color/common_google_signin_btn_text_light_focused" />
 </androidx.cardview.widget.CardView>
