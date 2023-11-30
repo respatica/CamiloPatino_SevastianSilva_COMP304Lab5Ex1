@@ -107,9 +107,7 @@ class MapInteracionActivity : AppCompatActivity() , OnMapReadyCallback {
             super.onLocationResult(locationResult)
             currentLocation = locationResult.lastLocation
 
-            val latLng = LatLng(locationResult.lastLocation?.latitude!!, locationResult.lastLocation?.longitude!!)
-            map?.addMarker(MarkerOptions().position(latLng).title("Current Location"))
-            map?.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(latLng, 15f, 0f, 0f)))
+            val building = intent.getStringExtra("building")
 
             val geocoder = Geocoder(this@MapInteracionActivity, Locale.getDefault())
             if (locationResult.lastLocation != null) {
@@ -121,7 +119,13 @@ class MapInteracionActivity : AppCompatActivity() , OnMapReadyCallback {
 
             }
 
-            val result = geocoder.getFromLocationName("Centennial College", 1)
+            val result = geocoder.getFromLocationName(building!!, 1)
+            val address = result?.get(0)
+            if (address != null){
+                val latLng = LatLng(address.latitude!!, address.longitude!!)
+                map?.addMarker(MarkerOptions().position(latLng).title(building!!))
+                map?.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(latLng, 15f, 0f, 0f)))
+            }
 
         }
     }
