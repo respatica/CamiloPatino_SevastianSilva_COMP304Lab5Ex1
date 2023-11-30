@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -41,6 +42,10 @@ class MapInteracionActivity : AppCompatActivity() , OnMapReadyCallback {
         setContentView(binding.root)
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(this)
+
+        val buildingName = intent.getStringExtra("building")
+        val buildingNameTextView = findViewById<TextView>(R.id.building_name_text)
+        buildingNameTextView.text = buildingName
         
         val prefs = getSharedPreferences("MAPS_INFO", MODE_PRIVATE)
         val isMapsPermissionGranted = prefs.getBoolean("IS_MAP_PERMISSION_GRANTED", false)
@@ -101,8 +106,6 @@ class MapInteracionActivity : AppCompatActivity() , OnMapReadyCallback {
         override fun onLocationResult(locationResult: LocationResult) {
             super.onLocationResult(locationResult)
             currentLocation = locationResult.lastLocation
-            binding.locationTextView.text =
-                "Latitude = ${currentLocation?.latitude}, Longitude = ${currentLocation?.longitude}"
 
             val latLng = LatLng(locationResult.lastLocation?.latitude!!, locationResult.lastLocation?.longitude!!)
             map?.addMarker(MarkerOptions().position(latLng).title("Current Location"))
@@ -116,11 +119,10 @@ class MapInteracionActivity : AppCompatActivity() , OnMapReadyCallback {
                     1
                 )
 
-                binding.locationTextView.text = result?.get(0)?.countryName ?: "USA"
             }
 
             val result = geocoder.getFromLocationName("Centennial College", 1)
-            binding.locationTextView.text = "${result?.get(0)?.latitude}, ${result?.get(0)?.longitude}"
+
         }
     }
     private val locationPermissionRequest = registerForActivityResult(
@@ -154,7 +156,8 @@ class MapInteracionActivity : AppCompatActivity() , OnMapReadyCallback {
         val lng = -79.2282955
 
         val latLng = LatLng(lat, lng)
-        map?.addMarker(MarkerOptions().position(latLng).title("Centennial College"))
+        val building = intent.getStringExtra("building")
+        map?.addMarker(MarkerOptions().position(latLng).title(building))
         map?.moveCamera(CameraUpdateFactory.newCameraPosition(CameraPosition(latLng, 20.0f, 0.0f, 0.0f)))
 
         map?.isBuildingsEnabled = true
